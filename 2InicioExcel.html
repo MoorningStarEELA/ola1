@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCC</title>
+    <link rel="icon" href="./sources/olaColor.png" type="image/x-icon" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 120vh;
+            background-image: url(./sources/wallpaper.jpg);
+            background-position: center;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        .contenedor {
+            background-color: rgba(193, 193, 193, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            color: rgb(32, 32, 36);
+            max-width: 400px;
+            width: 50%;
+            position: relative;
+        }
+        .logo {
+            width: 300px; /* Ajusta el tamaño del logo */
+            height: auto;
+            position: absolute;
+            top: -60px; /* Ajusta la posición vertical del logo */
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        .titulo {
+            background-color: #005288;
+            color: white;
+            padding: 10px 0;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(3, 2, 2, 0.8);
+            font-family: 'Raleway', sans-serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+            button {
+                width: 30%;
+                padding: 20px;
+                background-color: #008A5E;
+                color: black;
+                font-weight: bold;
+                border: none;
+                border-radius: 5px;
+                margin-top: 10px;
+                letter-spacing: 2px;
+                cursor: pointer;
+                transition: 0.5s;
+    }
+    button:hover, .titulo:hover, .logo:hover {
+      background: #55bbda;
+      color: #000000; 
+      box-shadow: 0 0 5px #55bbda,
+                  0 0 25px #55bbda,
+                  0 0 50px #55bbda,
+                  0 0 200px #55bbda;
+      -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+    }
+    .imgExcel{
+            width: 200px;
+            height: auto;
+            position:inherit;
+            display :block;
+            margin: 20px auto;
+           
+        }
+        .TextExcel{
+            text-align: center;
+            font-size: 18px;
+            display: block;
+            margin: 20px auto;
+        }
+    #fileInput {
+         display: none; }
+
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <img src="./sources/logo.png" alt="Logo" class="logo">
+        <h2 class="titulo">Smart Capacity Calculator SCC</h2>
+        <img src="./sources/excelimg.png" alt="imgExcel" class="imgExcel">
+        <label for="demanda" class="TextExcel">Cargue su Excel</label>
+        <button type="button" onclick="CargarExcel()">Cargar</button>
+        <input type="file" id="fileInput">
+        <p id="mensaje"></p>
+         
+    </div>
+
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script>
+        function CargarExcel() {
+            document.getElementById('fileInput').click();
+            document.getElementById('fileInput').addEventListener('change', function(e) {
+                const file = event.target.files[0];
+                if (!file) return ;
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const data = new Uint8Array(e.target.result);
+                    XLSX.reader(data,{ type :  'array'});
+
+                    const firstSheet = workbook.SheetNames[0];
+                    const worksheet = workbook.Sheets[firstSheet];
+                    
+         
+                    };
+        
+
+            
+        }
+    </script>
+</body>
+</html>

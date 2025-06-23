@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCC</title>
+    <link rel="icon" href="./sources/olaColor.png" type="image/x-icon" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 113vh;
+            background-image: url(./sources/wallpaper.jpg);
+            background-position: center;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        .contenedor {
+            background-color: rgba(20, 13, 13, 0.8);
+            padding: 50px 20px 20px;
+            border-radius: 15px;
+            text-align: center;
+            color: rgb(239, 239, 248);
+            max-width: 500px;
+            width: 70%;
+            position: center;
+        }
+
+        .check{
+            width: 200px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        .DtText{
+            text-align: center;
+            font-size: 18px;
+            display:block;
+            margin: 10px auto;
+        }
+        .logo {
+            width: 80%;
+            max-width: 250px;
+            height: auto;
+            position: absolute;
+            top: 10px; /* menos negativo */
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+            z-index: 10;
+        }
+        .titulo {
+            background-color: #005288;
+            color: white;
+            padding: 10px 0;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(3, 2, 2, 0.8);
+            font-family: 'Raleway', sans-serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+            button {
+                width: 30%;
+                padding: 20px;
+                background-color: #84b7dd;
+                color: black;
+                font-weight: bold;
+                border: none;
+                border-radius: 5px;
+                margin-top: 10px;
+                letter-spacing: 2px;
+                cursor: pointer;
+                transition: 0.5s;
+    }
+
+    button:hover, .titulo:hover, .logo:hover {
+      background: #42c1c7;
+      color: #000000; 
+      box-shadow: 0 0 5px #15bef0,
+                  0 0 25px #15bef0,
+                  0 0 50px #15bef0,
+                  0 0 200px #15bef0;
+      -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+    }
+    
+    #fileInput {
+         display: none; }
+
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <img src="./sources/logo.png" alt="Logo" class="logo">
+        <h2 class="titulo">Smart Capacity Calculator SCC </h2>
+        <img src="./sources/approved.png" alt="check" class="check">
+        <label for="demanda" class="DtText">Datos Cargados</label>
+
+        <form id="dtAdicionales">
+
+            <label for="turno">Cuantos turnos se va a ocupar?</label><p></p>
+
+            <input type="radio" name="TurnoObligatorio" value="1"> Turno 1 
+            <input type="radio" name="TurnoObligatorio" value="2"> Turno 2 
+            <input type="radio" name="TurnoObligatorio" value="3"> Turno 3<p></p>
+
+            <label for="turno">Cuantos turnos se va a ocupar?</label><p></p>
+            <input type="radio" name="Turnos2" value="1"> Turno 1 
+            <input type="radio" name="Turno2" value="2"> Turno 2 
+            <input type="radio" name="Turno2" value="3"> Turno 3 
+            <input type="radio" name="Turno2" value="0"> No aplica<p></p>
+
+            <label for="turno">Cuantos turnos se va a ocupar?</label><p></p>
+            <input type="radio" name="Turnos3" value="1"> Turno 1 
+            <input type="radio" name="Turnos3" value="2"> Turno 2 
+            <input type="radio" name="Turnos3" value="3"> Turno 3 
+            <input type="radio" name="Turnos3" value="0"> No aplica<p></p>
+        
+            <label for="CmabioModelos">Cuantos cambios de modelo se necesita?</label><p></p>
+            <input type="text" id="Modelos"><p></p>
+
+            <label for="Xdia">Cuantos NPI se necesita por dia?</label><p></p>
+            <input type="text" name="Xdia" id="Xdia"><p></p>
+            
+            <label for="YI">Cual es el YIELD actual?</label><p></p>
+            <input type="text" name="YI" id="YI">
+            <p></p>
+
+        </form>
+
+        
+        <button type="button" onclick="Calcular()">Empezar</button>
+        <input type="file" id="fileInput">
+
+
+
+        <p id="mensaje"></p>
+         
+    </div>
+
+    <script>
+        function Calcular() {
+            document.getElementById('fileInput').click();
+            document.getElementById('fileInput').addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    document.getElementById('mensaje').textContent = 'Archivo seleccionado: ' + file.name;
+                } else {
+                    document.getElementById('mensaje').textContent = 'No se seleccionó ningún archivo.';
+                }
+        });
+
+        
+
+            
+        }
+    </script>
+</body>
+</html>
