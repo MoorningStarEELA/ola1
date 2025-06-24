@@ -138,7 +138,6 @@
         <button type="button" onclick="window.location.href='./index.html'">Regresar</button>
 
         <a href="./1InicioDemanda.html" class="btnInicio"></a>
-        <input type="file" id="fileInput">
 
         <p id="mensaje"></p>
     </div>
@@ -146,10 +145,10 @@
         //Para descargar el PDF
        document.getElementById('generarPDF').addEventListener('click', () => {
             const { jsPDF } = window.jspdf;
-            const contenedor = document.querySelector('.contenedor'); // Solo esta parte
+            const contenedor = document.querySelector('.contenedor'); // Solo esta parte, el contenedor
 
             html2canvas(contenedor, { useCORS: true }).then(canvas => {
-                const imgData = canvas.toDataURL('image/png');
+                const imgData = canvas.toDataURL('image/png'); // Convertir a imagen para su uso seguro
                 const doc = new jsPDF();
 
                 // Ajustar tamaño proporcional
