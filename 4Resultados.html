@@ -144,30 +144,27 @@
     </div>
     <script>
         //Para descargar el PDF
-        document.getElementById('generarPDF').addEventListener('click', () => {
-            const { jsPDF } = window.jspdf; // Importar jsPDF desde la biblioteca
-            html2canvas(document.body, { useCORS: true }).then(canvas => {
+       document.getElementById('generarPDF').addEventListener('click', () => {
+            const { jsPDF } = window.jspdf;
+            const contenedor = document.querySelector('.contenedor'); // Solo esta parte
+
+            html2canvas(contenedor, { useCORS: true }).then(canvas => {
                 const imgData = canvas.toDataURL('image/png');
                 const doc = new jsPDF();
-                
-                doc.addImage(imgData, 'PNG', 0, 0, canvas.width / 96, canvas.height / 96);
+
+                // Ajustar tamaño proporcional
+                const imgProps = doc.getImageProperties(imgData);
+                const pdfWidth = doc.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
                 doc.save("archivo.pdf");
             }).catch(error => {
                 console.error("Error al generar el PDF:", error);
+                alert("No se pudo generar el PDF. Asegúrate de estar cargando el sitio desde un servidor local.");
             });
         });
 
-        function CargarDemanda() {
-            document.getElementById('fileInput').click();
-            document.getElementById('fileInput').addEventListener('change', function(event) {
-                const file = event.target.files[0];
-                if (file) {
-                    document.getElementById('mensaje').textContent = 'Archivo seleccionado: ' + file.name;
-                } else {
-                    document.getElementById('mensaje').textContent = 'No se seleccionó ningún archivo.';
-                }
-            });
-        }
     </script>
 </body>
 </html>
