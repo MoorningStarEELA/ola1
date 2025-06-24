@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SCC</title>
     <link rel="icon" href="./sources/olaColor.png" type="image/x-icon" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
     <style>
         table, th, td {
             border:1px solid rgb(8, 247, 247);
@@ -87,7 +90,7 @@
             margin: 20px auto; /* Centra la imagen horizontalmente */
         }
         
-        #fileInput { /* para ocultar el boton de seleccionar por default */
+        #fileInput {  /* para ocultar el boton de seleccionar por default */
             display: none;
         }
         
@@ -131,19 +134,29 @@
             </tr>
         </table><p></p>
         
-        <button type="button" onclick="DescargarArchivo()"> Descargar</button>
-                <button type="button" onclick="window.location.href='./index.html'">Regresar</button>
-
-                
+        <button type="button" id="generarPDF"> Descargar</button>
+        <button type="button" onclick="window.location.href='./index.html'">Regresar</button>
 
         <a href="./1InicioDemanda.html" class="btnInicio"></a>
         <input type="file" id="fileInput">
 
-        
         <p id="mensaje"></p>
     </div>
-        
     <script>
+        //Para descargar el PDF
+        document.getElementById('generarPDF').addEventListener('click', () => {
+            const { jsPDF } = window.jspdf; // Importar jsPDF desde la biblioteca
+            html2canvas(document.body, { useCORS: true }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const doc = new jsPDF();
+                
+                doc.addImage(imgData, 'PNG', 0, 0, canvas.width / 96, canvas.height / 96);
+                doc.save("archivo.pdf");
+            }).catch(error => {
+                console.error("Error al generar el PDF:", error);
+            });
+        });
+
         function CargarDemanda() {
             document.getElementById('fileInput').click();
             document.getElementById('fileInput').addEventListener('change', function(event) {
