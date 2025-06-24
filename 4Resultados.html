@@ -159,14 +159,13 @@
                 doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
 
                 const fecha = new Date();
-                const fechaFormateada = fecha.toLocaleDateString('es-ES', { 
-                    day : '2-digit',
-                    month : '2-digit',
-                    year : 'numeric'
-                }).replace(/\//g, '-');
+                const fechaFormateada = fecha.toLocaleDateString('es-ES', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                }).replace(/\//g, '-'); // Reemplaza / por - para compatibilidad
 
-                
-                doc.save('Bitacora_${fechaFormateada}.pdf');
+                doc.save(`bitacora_${fechaFormateada}.pdf`);
             }).catch(error => {
                 console.error("Error al generar el PDF:", error);
                 alert("No se pudo generar el PDF. Asegúrate de estar cargando el sitio desde un servidor local.");
