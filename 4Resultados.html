@@ -78,7 +78,15 @@
             transition: 0.5s;
             position: center;
         }
-       
+        button:hover, .titulo:hover, .logo:hover {
+            background: #42c1c7;
+            color: #000000; 
+            box-shadow: 0 0 5px #15bef0,
+                        0 0 25px #15bef0,
+                        0 0 50px #15bef0,
+                        0 0 200px #15bef0;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+        }
         .demand {
             width: 500px;
             height: auto;
@@ -106,7 +114,7 @@
             </tr>
             <tr>
                 <td>Cambio de Modelo</td>
-                <td>Resultado</td>
+                <td id="ResultadoModelo">1.23</td>
             </tr>
             <tr>
                 <td>Productividad </td>
