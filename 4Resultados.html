@@ -12,7 +12,7 @@
     
     <style> 
         table, th, td {
-            border:1px solid rgb(8, 247, 247);
+            border:1px solid #4d81c5;
             height: 30px;
             font-style:Helvetica ;
         }
@@ -27,17 +27,18 @@
             font-family: Arial, sans-serif;
         }
         .contenedor {
-            background-color: rgba(20, 13, 13, 0.8);
+            background-color: rgba(255, 255, 255, 0.829);
             padding: 80px 20px 20px;
             border-radius: 15px;
             text-align: center;
-            color: rgb(239, 239, 248);
+            color: rgb(19, 19, 19);
             max-width: 700px;
             width: 90%;
             position: relative;
             box-sizing: border-box;
         }
-    
+        
+        
         .logo {
             width: 80%;
             max-width: 250px;
@@ -51,7 +52,7 @@
         }
 
         .titulo  {
-            background-color: #3864b5;
+            background-color: #44569d;
             color: white;
             padding: 10px 0;
             border-radius: 15px;
@@ -64,14 +65,15 @@
         button {
             width: 30%;
             padding: 10px;
-            background-color: #9bd7f6;
-            color: rgb(56, 33, 33);
+            background-color: #44569d;
+            color: rgb(255, 255, 255);
             font-weight: bold;
             border: none;
             border-radius: 5px;
             margin-top: 10px;
             letter-spacing: 2px;
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Raleway',Arial, Helvetica, sans-serif;
+            font-size: 15px;
             cursor: pointer;
             transition: 0.5s;
             position: center;
@@ -100,7 +102,7 @@
 </head>
 <body>
     <div class="contenedor">
-        <img src="./sources/logo2.png" alt="Logo" class="logo">
+        <img src="./sources/logo.png" alt="Logo" class="logo">
         <h2 class="titulo">Smart Capacity Calculator SCC</h2>
         <canvas id="grafica"></canvas>
         <label for="fileInput" class="textDemanda">Resultados Finalizados</label><p></p>
@@ -181,8 +183,9 @@
         const Datos2025={
             label: "Cap Model",
             data:[1.73,1.20,1.41,2.02,1.41,1.23,1.95,1.57,1.23],
-            backgroundColor: "rgba(255, 99, 132, 0.2)",
-            borderColor: "rgba(255, 99, 132, 1)",
+            backgroundColor: "rgba(17, 1, 71, 0.55)",
+            borderColor: "#010036",
+            
             borderWidth: 1,
         };
 
