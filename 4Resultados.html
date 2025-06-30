@@ -198,10 +198,16 @@
             options: {
                 scales:{
                     yAxes: [{
-                        ticks: {
+                         
                             beginAtZero: true
-                        }
+                        
                     }]
+                },
+                plugins:{
+                    datalabels: {
+                        anchor:'end', aling :'top', formatter:(value) =>value,
+                        color: 'black'
+                    }
                 }
             }
 
