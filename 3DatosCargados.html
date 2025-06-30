@@ -87,6 +87,15 @@
                   0 0 200px #15bef0;
       -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
     }
+    .advertencia{
+        font-size: 159%;
+        color: red;
+
+    }
+    .Valido{
+        font-size: 159%;
+        color: green;
+    }
     
     #fileInput {
          display: none; }
@@ -95,10 +104,14 @@
 </head>
 <body>
     <div class="contenedor">
+       
+
         <img src="./sources/logo2.png" alt="Logo" class="logo">
         <h2 class="titulo">Smart Capacity Calculator SCC </h2>
         <img src="./sources/lista-de-verificacion.png" alt="check" class="check">
         <label for="demanda" class="DtText">Datos Cargados</label>
+         <p id="MensajeAD" class="advertencia"></p>
+         <p id="MensajeValido" class="Valido"></p>
 
         <form name="dtAdicionales" id="dtAdicionales">
 
@@ -133,9 +146,6 @@
         <button type="button" onclick="Validar()">Empezar</button>
         <input type="file" id="fileInput">
 
-
-
-        <p id="mensaje"></p>
          
     </div>
 
@@ -150,9 +160,10 @@
 
 
             if(turno1 === ""  || modelo === "" || xdia === "" || yi === ""){
-                document.getElementById("mensaje").innerHTML = "Por favor, complete todos los campos";
+                document.getElementById("MensajeAD").innerHTML = "Por favor, complete todos los campos";
+                setTimeout(Validar,2000);
             }else{
-                document.getElementById("mensaje").innerHTML = "Los campos están completos";
+                document.getElementById("MensajeValido").innerHTML = "Los campos están completos";
                 onclick=Calcular();
             }
             
@@ -171,9 +182,9 @@
             document.getElementById('fileInput').addEventListener('change', function(event) {
                 const file = event.target.files[0];
                 if (file) {
-                    document.getElementById('mensaje').textContent = 'Archivo seleccionado: ' + file.name;
+                    document.getElementById('MensajeAD').textContent = 'Archivo seleccionado: ' + file.name;
                 } else {
-                    document.getElementById('mensaje').textContent = 'No se seleccionó ningún archivo.';
+                    document.getElementById('MensajeAD').textContent = 'No se seleccionó ningún archivo.';
                 }
         });
 
