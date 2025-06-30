@@ -100,7 +100,7 @@
         <img src="./sources/lista-de-verificacion.png" alt="check" class="check">
         <label for="demanda" class="DtText">Datos Cargados</label>
 
-        <form id="dtAdicionales">
+        <form name="dtAdicionales" id="dtAdicionales">
 
             <label for="Turno1Obligatorio">¿Se utilizó el Turno 1?</label><p></p>
 
@@ -117,7 +117,7 @@
             <input type="radio" name="turno3" value="0"> No<p></p>
         
             <label for="Modelos">¿Cuántos cambios de modelo se necesita?</label><p></p>
-            <input type="text" id="Modelos"><p></p>
+            <input type="text" id="Modelos" name="Modelos"><p></p>
 
             <label for="Xdia">¿Cuántas horas de NPI se necesita por dia?</label><p></p>
             <input type="text" name="Xdia" id="Xdia"><p></p>
@@ -130,7 +130,7 @@
 
         <button type="button" onclick="window.location.href='./4Resultados.html'">Continuar</button>
 
-        <button type="button" onclick="Calcular()">Empezar</button>
+        <button type="button" onclick="Validar()">Empezar</button>
         <input type="file" id="fileInput">
 
 
@@ -140,7 +140,33 @@
     </div>
 
     <script>
+        function Validar(){
+            var turno1 = document.querySelector('input[name="Turno1Obligatorio"]:checked');
+            var turno2 = document.querySelector('input[name="turno2"]:checked');
+            var turno3 = document.querySelector('input[name="turno3"]:checked');
+            var modelo = document.forms["dtAdicionales"]["Modelos"].value;
+            var xdia = document.forms["dtAdicionales"]["Xdia"].value;
+            var yi = document.forms["dtAdicionales"]["YI"].value;
+
+
+            if(turno1 === ""  || modelo === "" || xdia === "" || yi === ""){
+                document.getElementById("mensaje").innerHTML = "Por favor, complete todos los campos";
+            }else{
+                document.getElementById("mensaje").innerHTML = "Los campos están completos";
+                onclick=Calcular();
+            }
+            
+            
+        }
         function Calcular() {
+
+            var turno1 = document.querySelector('input[name="Turno1Obligatorio"]:checked');
+            var turno2 = document.querySelector('input[name="turno2"]:checked');
+            var turno3 = document.querySelector('input[name="turno3"]:checked');
+            var modelo = document.forms["dtAdicionales"]["Modelos"].value;
+            var xdia = document.forms["dtAdicionales"]["Xdia"].value;
+            var yi = document.forms["dtAdicionales"]["YI"].value;
+
             document.getElementById('fileInput').click();
             document.getElementById('fileInput').addEventListener('change', function(event) {
                 const file = event.target.files[0];

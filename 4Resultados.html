@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
     
     <style> 
@@ -105,6 +106,7 @@
         <img src="./sources/logo.png" alt="Logo" class="logo">
         <h2 class="titulo">Smart Capacity Calculator SCC</h2>
         <canvas id="grafica"></canvas>
+        
         <label for="fileInput" class="textDemanda">Resultados Finalizados</label><p></p>
 
         <table style="width:100%" id="table">
@@ -162,7 +164,7 @@
             
                 doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
 
-                const fecha = new Date();
+                const fecha = new Date(); //para obtener la fecha actual
                 const fechaFormateada = fecha.toLocaleDateString('es-ES', {
                     day: '2-digit',
                     month: '2-digit',
@@ -181,7 +183,7 @@
         const etiquetas = ["Marzo","Abril", "Mayo","Junio", "Julio","Agosto","Septiembre", "Octubre","Noviembre"];
 
         const Datos2025={
-            label: "Cap Model",
+            label: "Cap Models",
             data:[1.73,1.20,1.41,2.02,1.41,1.23,1.95,1.57,1.23],
             backgroundColor: "rgba(17, 1, 71, 0.55)",
             borderColor: "#010036",
@@ -205,7 +207,7 @@
                 },
                 plugins:{
                     datalabels: {
-                        anchor:'end', aling :'top', formatter:(value) =>value,
+                        anchor:'end', aling :'start', offset:-10, formatter:(value) => value.toFixed(2),
                         color: 'black'
                     }
                 }
