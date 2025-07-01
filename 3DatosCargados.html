@@ -159,9 +159,9 @@
             var yi = document.forms["dtAdicionales"]["YI"].value;
 
 
-            if(turno1 === ""  || modelo === "" || xdia === "" || yi === ""){
+            if(turno1 === ""  || turno2 === "" ||turno3 === "" || modelo === "" || xdia === "" || yi === ""){
                 document.getElementById("MensajeAD").innerHTML = "Por favor, complete todos los campos";
-                setTimeout(Validar,2000);
+                setTimeout("MensajeAD",2000);
             }else{
                 document.getElementById("MensajeValido").innerHTML = "Los campos están completos";
                 onclick=Calcular();
@@ -170,6 +170,7 @@
             
         }
         function Calcular() {
+            Datos = [];
 
             var turno1 = document.querySelector('input[name="Turno1Obligatorio"]:checked');
             var turno2 = document.querySelector('input[name="turno2"]:checked');
