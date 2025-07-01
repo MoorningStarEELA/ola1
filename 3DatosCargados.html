@@ -87,14 +87,9 @@
                   0 0 200px #15bef0;
       -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
     }
-    .advertencia{
-        font-size: 159%;
-        color: red;
-
-    }
-    .Valido{
-        font-size: 159%;
-        color: green;
+    .mensaje{
+        font-size: 150%;
+        color: #90ffff;
     }
     
     #fileInput {
@@ -110,15 +105,12 @@
         <h2 class="titulo">Smart Capacity Calculator SCC </h2>
         <img src="./sources/lista-de-verificacion.png" alt="check" class="check">
         <label for="demanda" class="DtText">Datos Cargados</label>
-         <p id="MensajeAD" class="advertencia"></p>
-         <p id="MensajeValido" class="Valido"></p>
+         <p id="Mensaje" class="mensaje"></p>
 
         <form name="dtAdicionales" id="dtAdicionales">
 
             <label for="Turno1Obligatorio">¿Se utilizó el Turno 1?</label><p></p>
-
             <input type="radio" name="Turno1Obligatorio" value="1"> Si 
-            
             <input type="radio" name="Turno1Obligatorio" value="0"> No<p></p>
 
             <label for="turno2">¿Se utilizó el Turno 2?</label><p></p>
@@ -160,10 +152,9 @@
 
 
             if(turno1 === ""  || turno2 === "" ||turno3 === "" || modelo === "" || xdia === "" || yi === ""){
-                document.getElementById("MensajeAD").innerHTML = "Por favor, complete todos los campos";
-                setTimeout("MensajeAD",2000);
+                document.getElementById("Mensaje").innerHTML = "Por favor, complete todos los campos.";
             }else{
-                document.getElementById("MensajeValido").innerHTML = "Los campos están completos";
+                document.getElementById("Mensaje").innerHTML = "Los campos están completos";
                 onclick=Calcular();
             }
             
