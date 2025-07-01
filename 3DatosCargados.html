@@ -66,8 +66,8 @@
         }
             button {
                 width: 30%;
-                padding: 20px;
-                background-color: #9bd7f6;
+                padding: 15px;
+                background-color: #ffffff;
                 color: black;
                 font-weight: bold;
                 border: none;
@@ -78,7 +78,7 @@
                 transition: 0.5s;
     }
 
-    button:hover, .titulo:hover, .logo:hover {
+    button:hover, .titulo:hover, .logo:hover ,.icon:hover {
       background: #42c1c7;
       color: #000000; 
       box-shadow: 0 0 5px #15bef0,
@@ -90,6 +90,12 @@
     .mensaje{
         font-size: 150%;
         color: #90ffff;
+    }
+    .icon{
+        width: 20%;
+        padding-bottom: 0%;
+        margin: 0 auto;
+        border-radius: 5px;
     }
     
     #fileInput {
@@ -133,9 +139,11 @@
 
         </form>
 
+        
+
+        <button type="button" onclick="Validar()"><img src="./sources/proceso.svg" alt="icono" class="icon"> Empezar</button>
         <button type="button" onclick="window.location.href='./4Resultados.html'">Continuar</button>
 
-        <button type="button" onclick="Validar()">Empezar</button>
         <input type="file" id="fileInput">
 
          
