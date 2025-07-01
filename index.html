@@ -52,18 +52,17 @@
             margin-bottom: 20px;
         }
         button {
-            width: 30%;
-            padding: 20px;
-            background-color: #9bd7f6;
-            color: black;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            margin-top: 10px;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: 0.5s;
-            position: center;
+            width: 25%;
+                padding: 15px;
+                background-color: #ffffff;
+                color: black;
+                font-weight: bold;
+                border: none;
+                border-radius: 5px;
+                margin-top: 10px;
+                letter-spacing: 2px;
+                cursor: pointer;
+                transition: 0.5s;
         }
         button:hover, .titulo:hover, .logo:hover {
             background: #42c1c7;
@@ -89,6 +88,13 @@
         #fileInput { /* para ocultar el boton de seleccionar por default */
             display: none;
         }
+
+        .icon{
+        width: 35%;
+        padding-bottom: 0%;
+        margin: 0 auto;
+        border-radius: 5px;
+    }
     </style>
 </head>
 <body>
@@ -97,7 +103,7 @@
         <h2 class="titulo">Bienvenido - Smart Capacity Calculator SCC</h2>
         <img src="./sources/enviar.png" alt="demand" class="demand">
         <label for="fileInput" class="textDemanda">Cargue su demanda, en formato .xlsx</label>
-        <button type="button" onclick="CargarDemanda()">Cargar</button>
+        <button type="button" onclick="CargarDemanda()"><img src="./sources/bandeja-de-entrada.svg" alt="icon" class="icon">Cargar</button>
         <button type="button" onclick="window.location.href='./2InicioExcel.html'">Continuar</button>
         
         <input type="file" id="fileInput">
