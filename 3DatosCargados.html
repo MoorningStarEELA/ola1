@@ -166,10 +166,45 @@
                 onclick=Calcular();
             }
             
-            
         }
+        
+       
         function Calcular() {
-            Datos = [];
+                var turno1 = document.querySelector('input[name="Turno1Obligatorio"]:checked').value;
+                var turno2 = document.querySelector('input[name="turno2"]:checked').value;
+                var turno3 = document.querySelector('input[name="turno3"]:checked').value;
+                var modelo = parseFloat(document.forms["dtAdicionales"]["Modelos"].value);
+                var xdia = parseFloat(document.forms["dtAdicionales"]["Xdia"].value);
+                var yi = parseFloat(document.forms["dtAdicionales"]["YI"].value);
+
+                var turno1Hrs = 0;
+                var turno2Hrs = 0;
+                var turno3Hrs = 0;
+            
+
+                if (turno1 === "1") {
+                    turno1Hrs = 7.2;
+                }
+                if (turno2 === "1") {
+                    turno2Hrs = 6.8;
+                }
+                if (turno3 === "1") {
+                    turno3Hrs = 7.8;
+                }
+
+               
+            
+
+            if (!isNaN(modelo)) {
+                var Cambiomodelo = modelo * 0.3;
+            }
+
+
+
+                // Aquí puedes continuar con los cálculos necesarios usando turno1Hrs, turno2Hrs, turno3Hrs, modelo, xdia y yi
+                console.log(turno1Hrs, turno2Hrs, turno3Hrs, Cambiomodelo, xdia, yi);
+            }
+
 
             var turno1 = document.querySelector('input[name="Turno1Obligatorio"]:checked');
             var turno2 = document.querySelector('input[name="turno2"]:checked');
@@ -190,8 +225,7 @@
 
         
 
-            
-        }
+        
     </script>
 </body>
 </html>
