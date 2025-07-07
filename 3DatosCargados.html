@@ -192,17 +192,34 @@
                     turno3Hrs = 7.8;
                 }
 
-               
+                if (turno1 === ("1")|| turno2 === ("1")) {  
+                    var SumaPrimeros2Turnos = turno1Hrs + turno2Hrs;
+                }
             
+            
+                if (turno1 === ("1")|| turno3 === ("1")) {  
+                    var SumaTurnos13 = turno1Hrs + turno3Hrs;
+                }
+                if (turno1 === ("1")|| turno2 === ("1") || turno3 === ("1 ")) {  
+                    var SumatotalTurnos = turno1Hrs + turno2Hrs + turno3Hrs;
+                }
+                
 
-            if (!isNaN(modelo)) {
-                var Cambiomodelo = modelo * 0.3;
-            }
+                if (!isNaN(modelo)) {
+                    var Cambiomodelo = modelo * 0.3;
+                }
+                if (!isNaN(xdia)) {
+                    var Cambioxdia = turno1Hrs - xdia;
+                }
+
+                if (!isNaN(yi)) {
+                    var Cambioyi = yi * .95;
+                }
 
 
 
                 // Aquí puedes continuar con los cálculos necesarios usando turno1Hrs, turno2Hrs, turno3Hrs, modelo, xdia y yi
-                console.log(turno1Hrs, turno2Hrs, turno3Hrs, Cambiomodelo, xdia, yi);
+                console.log(turno1Hrs, turno2Hrs, turno3Hrs,SumaPrimeros2Turnos, SumaTurnos13 , SumatotalTurnos, Cambiomodelo, Cambioxdia, Cambioyi);
             }
 
 
